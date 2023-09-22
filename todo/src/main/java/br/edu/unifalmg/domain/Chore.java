@@ -6,8 +6,8 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @Builder
+@NoArgsConstructor
 @AllArgsConstructor
 public class Chore {
 
@@ -16,6 +16,5 @@ public class Chore {
     private String description;
 
     private LocalDate deadline;
-
 
 }
