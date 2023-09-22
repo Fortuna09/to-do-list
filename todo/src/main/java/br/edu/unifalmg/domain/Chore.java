@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class Chore {
 
-    private boolean isCompleted;
+    private Boolean isCompleted;
 
     private String description;
 

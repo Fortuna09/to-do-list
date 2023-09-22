@@ -1,6 +1,7 @@
 package br.edu.unifalmg.service;
 
 import br.edu.unifalmg.domain.Chore;
+import br.edu.unifalmg.exception.InvalidDeadlineException;
 import br.edu.unifalmg.exception.InvalidDescriptionException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -33,13 +34,13 @@ public class ChoreServiceTest {
     }
 
     @Test
-    @DisplayName("#add > When the deadline is invalid > Throw an exception")
+    @DisplayName("#addChore > When the deadline is invalid > Throw an exception")
     void addWhenTheDeadlineIsInvalidThrowAnException () {
         ChoreService service = new ChoreService();
         assertAll(
                 () -> assertThrows(InvalidDescriptionException.class,
                         () -> service.addChore("Description",null)),
-                () -> assertThrows(InvalidDescriptionException.class,
+                () -> assertThrows(InvalidDeadlineException.class,
                         () -> service.addChore("Description",LocalDate.now().minusDays(1)))
         );
     }
