@@ -9,5 +9,4 @@ public class InvalidDeadlineException extends RuntimeException {
         super(message);
     }
 
-
 }
