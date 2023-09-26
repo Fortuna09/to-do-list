@@ -38,7 +38,7 @@ public class ChoreServiceTest {
     void addWhenTheDeadlineIsInvalidThrowAnException () {
         ChoreService service = new ChoreService();
         assertAll(
-                () -> assertThrows(InvalidDescriptionException.class,
+                () -> assertThrows(InvalidDeadlineException.class,
                         () -> service.addChore("Description",null)),
                 () -> assertThrows(InvalidDeadlineException.class,
                         () -> service.addChore("Description",LocalDate.now().minusDays(1)))
