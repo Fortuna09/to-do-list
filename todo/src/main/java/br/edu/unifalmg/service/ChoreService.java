@@ -11,10 +11,11 @@ import java.util.List;
 
 public class ChoreService {
 
-    public ChoreService() {
-        List<Chore> chores = new ArrayList<>();
-    }
     private List<Chore> chores;
+
+    public ChoreService() {
+        chores = new ArrayList<>();
+    }
 
     public Chore addChore(String description, LocalDate deadline) {
         if (description == null || description.isEmpty()) {
@@ -30,16 +31,16 @@ public class ChoreService {
             }
         }
 
-//        Chore chore = new Chore();
-//        chore.setDescription(description);
-//        chore.setDeadline(deadline);
-//        chore.setIsCompleted(Boolean.FALSE);
+        Chore chore = new Chore();
+        chore.setDescription(description);
+        chore.setDeadline(deadline);
+        chore.setIsCompleted(Boolean.FALSE);
 
-        Chore chore = Chore.builder()
-                .description(description)
-                .deadline(deadline)
-                .isCompleted(Boolean.FALSE)
-                .build();
+//        Chore chore = Chore.builder()
+//                .description(description)
+//                .deadline(deadline)
+//                .isCompleted(Boolean.FALSE)
+//                .build();
 //        Chore chore = new Chore(description,deadline,Boolean.FALSE);
 
         chores.add(chore);
