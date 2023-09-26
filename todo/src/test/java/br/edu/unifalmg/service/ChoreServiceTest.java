@@ -1,6 +1,7 @@
 package br.edu.unifalmg.service;
 
 import br.edu.unifalmg.domain.Chore;
+import br.edu.unifalmg.exception.DuplicatedChoreException;
 import br.edu.unifalmg.exception.InvalidDeadlineException;
 import br.edu.unifalmg.exception.InvalidDescriptionException;
 import org.junit.jupiter.api.Assertions;
@@ -38,7 +39,7 @@ public class ChoreServiceTest {
     void addWhenTheDeadlineIsInvalidThrowAnException () {
         ChoreService service = new ChoreService();
         assertAll(
-                () -> assertThrows(InvalidDescriptionException.class,
+                () -> assertThrows(InvalidDeadlineException.class,
                         () -> service.addChore("Description",null)),
                 () -> assertThrows(InvalidDeadlineException.class,
                         () -> service.addChore("Description",LocalDate.now().minusDays(1)))
@@ -50,7 +51,7 @@ public class ChoreServiceTest {
     void addWhenTheAddingAChoreWhenTheChoreAlreadyExistsThrowAnException () {
         ChoreService service = new ChoreService();
         service.addChore("Description", LocalDate.now());
-        assertThrows(DataFormatException.class,
+        assertThrows(DuplicatedChoreException.class,
                 () -> service.addChore("Description", LocalDate.now())
                 );
     }
